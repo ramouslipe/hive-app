@@ -1,0 +1,50 @@
+    {% if session.get('nome') %}
+    <div style="background:#eee; padding:10px;">
+        Logado como: <strong>{{ session['nome'] }}</strong>
+        (<a href="/logout">Sair</a>)
+    </div> 
+
+    {% if session.get('tipo') == 'usuario' %}
+    <div style="margin-top: 10px;">
+        <a href="/usuario/loja">🛒 Ir para a Loja de Jogos</a> |
+        <a href="/usuario/biblioteca">🎮 Minha Biblioteca</a>
+    </div>
+    {% endif %}
+
+    {% endif %}
+
+    {% if session.get('tipo') == 'usuario' %}
+    <a href="/usuario/biblioteca">Minha Biblioteca</a> |
+    {% endif %}
+
+
+<h1>Loja de Jogos</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul style="color:green;">
+      {% for msg in messages %}
+        <li>{{ msg }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<table border="1">
+    <tr><th>Título</th><th>Preço</th><th>Desenvolvedora</th><th>Ação</th></tr>
+    {% for jogo in jogos %}
+    <tr>
+        <td>{{ jogo[1] }}</td>
+        <td>R$ {{ jogo[2] }}</td>
+        <td>{{ jogo[3] }}</td>
+        <td>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="id_jogo" value="{{ jogo[0] }}">
+                <button type="submit">Comprar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Voltar ao painel</a>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Jogos</title>
+</head>
+<body>
+    {% if session.get('nome') %}
+    <div style="background:#eee; padding:10px;">
+        Logado como: <strong>{{ session['nome'] }}</strong>
+        (<a href="/logout">Sair</a>)
+    </div>
+    {% endif %}
+    
+    {% if session.get('tipo') == 'usuario' %}
+    <a href="/usuario/biblioteca">Minha Biblioteca</a> |
+    {% endif %}
+
+
+<h1>Lista de Usuários</h1>
+<a href="/usuario/add">Adicionar Novo Usuário</a>
+
+<table border="1">
+    <tr><th>ID</th><th>Nome</th><th>Email</th><th>Ações</th></tr>
+    {% for u in usuarios %}
+    <tr>
+        <td>{{ u[0] }}</td>
+        <td>{{ u[1] }}</td>
+        <td>{{ u[2] }}</td>
+        <td>
+            <a href="/usuario/edit/{{ u[0] }}">Editar</a>
+            <a href="/usuario/delete/{{ u[0] }}" onclick="return confirm('Excluir?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Voltar ao painel principal</a>
+
+</body>
+</html>
