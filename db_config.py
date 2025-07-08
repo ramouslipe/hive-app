@@ -4,7 +4,8 @@ def get_connection():
     return psycopg2.connect(
         dbname="HIVE",
         user="postgres",
-        password="",
+        password="root",
         host="localhost",
-        port="5433"
+        port="5432"
     )
+
