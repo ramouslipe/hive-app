@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Compras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="compras-container">
+        <h1>Nova Compra</h1>
+        <form action="inserir_compra.php" method="post">
+            <label for="id_compra">ID Compra:</label>
+            <input type="number" name="id_compra" id="id_compra" required>
+
+            <label for="id_usuario">ID Usuário:</label>
+            <input type="number" name="id_usuario" id="id_usuario" required>
+            
+            <input type="submit" value="Salvar">
+        </form>
+        <p style="margin-top: 20px;">
+            <a href="listar_compras.php">Ver Compras</a> | 
+            <a href="index.html">Voltar</a>
+        </p>
+    </div>
+</body>
+</html>
