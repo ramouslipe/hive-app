@@ -1,30 +1,21 @@
 # Hive 
 instruções para instalação, configuração e execução da aplicação Hive, além dos scripts para criação e povoamento do banco de dados.
 
-##Índice
+#Índice
 
-Pré-requisitos
+* Pré-requisitos
+* Instalação
+* Configuração do Banco de Dados
+* Scripts de Banco de Dados
+* Variáveis de Ambiente
+* Execução da Aplicação
+* Execução de Testes
+* Estrutura do Projeto
 
-Instalação
-
-Configuração do Banco de Dados
-
-Scripts de Banco de Dados
-
-Variáveis de Ambiente
-
-Execução da Aplicação
-
-Execução de Testes
-
-Estrutura do Projeto
-
-Pré-requisitos
+#Pré-requisitos
 
 Python 3.8+
-
 PostgreSQL 12+
-
 Git
 
 #Instalação
@@ -45,21 +36,14 @@ Scripts de Banco de Dados
 
 schema.sql: contém os comandos para criar as tabelas principais:
 
-usuário
-
-desenvolvedora
-
-jogo
-
-biblioteca_jogo
-
-compra
-
-item_compra
-
-biblioteca
-
-avaliação
+* usuário
+* desenvolvedora
+* jogo
+* biblioteca_jogo
+* compra
+* item_compra
+* biblioteca
+* avaliação
 
 # Execução da Aplicação
 
