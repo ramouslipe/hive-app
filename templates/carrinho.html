@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/carrinho.js" defer></script>
+</head>
+<body onload="carregarCarrinho()">
+    <div class="carrinho-container">
+        <header>
+            <h1>Seu Carrinho</h1>
+        </header>
+        <main>
+            <h2>Itens no Carrinho</h2>
+            <ul id="itens-carrinho"></ul>
+            <p><strong>Total:</strong> <span id="total">R$ 0.00</span></p>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+            <p><a href="loja.html">Continuar comprando</a></p>
+        </main>
+    </div>
+
+    <script>
+        function finalizarCompra() {
+            alert("Compra finalizada com sucesso!");
+            localStorage.removeItem('carrinho');
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
