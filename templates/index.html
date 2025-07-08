@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Principal</title>
+</head>
+<body>
+    {% if session.get('nome') %}
+    <div style="background:#eee; padding:10px;">
+        Logado como: <strong>{{ session['nome'] }}</strong>
+        (<a href="/logout">Sair</a>)
+    </div> 
+
+    {% if session.get('tipo') == 'usuario' %}
+    <div style="margin-top: 10px;">
+        <a href="/usuario/loja">🛒 Ir para a Loja de Jogos</a> |
+        <a href="/usuario/biblioteca">🎮 Minha Biblioteca</a>
+    </div>
+    {% endif %}
+
+    {% endif %}
+
+    {% if session.get('tipo') == 'usuario' %}
+    <a href="/usuario/biblioteca">Minha Biblioteca</a> |
+    {% endif %}
+
+
+    <h1>Dashboard Principal</h1>
+
+    <!-- Usuários     <h2>Usuários</h2>
+    <a href="/usuario/add">Adicionar Usuário</a>
+    <table border="1">
+    <tr>
+        <th>ID</th><th>Nome</th><th>Email</th><th>Ações</th>
+    </tr>
+    {% for u in usuarios %}
+    <tr>
+        <td>{{ u[0] }}</td>
+        <td>{{ u[1] }}</td>
+        <td>{{ u[2] }}</td>
+        <td>
+            <a href="/usuario/edit/{{ u[0] }}">Editar</a>
+            <a href="/usuario/delete/{{ u[0] }}" onclick="return confirm('Deseja excluir este usuário?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table> -->
+
+
+    <!-- Avaliações -->
+    <h2>Avaliações</h2>
+    <a href="/avaliacoes/add">Adicionar Avaliação</a>
+    <table border="1">
+        <tr><th>ID</th><th>Comentário</th><th>Usuário</th><th>Jogo</th><th>Ações</th></tr>
+        {% for a in avaliacoes %}
+        <tr>
+            <td>{{ a[0] }}</td>
+            <td>{{ a[1] }}</td>
+            <td>{{ a[2] }}</td>
+            <td>{{ a[3] }}</td>
+            <td><a href="/avaliacoes/delete/{{ a[0] }}" onclick="return confirm('Excluir avaliação?')">Excluir</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Desenvolvedoras -->
+    <h2>Desenvolvedoras</h2>
+    <a href="/developer/add">Adicionar Desenvolvedora</a>
+    <table border="1">
+        <tr><th>ID</th><th>Nome</th><th>Ações</th></tr>
+        {% for d in desenvolvedoras %}
+        <tr>
+            <td>{{ d[0] }}</td>
+            <td>{{ d[1] }}</td>
+            <td><a href="/developer/delete/{{ d[0] }}" onclick="return confirm('Excluir desenvolvedora?')">Excluir</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Jogos
+    <h2>Jogos</h2>
+    <a href="/jogos/add">Adicionar Jogo</a>
+    <table border="1">
+    <tr><th>ID</th><th>Título</th><th>Preço</th><th>Desenvolvedora</th><th>Ações</th></tr>
+    {% for j in jogos %}
+    <tr>
+        <td>{{ j[0] }}</td>
+        <td>{{ j[1] }}</td>
+        <td>R$ {{ j[2] }}</td>
+        <td>{{ j[3] }}</td>
+        <td>
+            <a href="/jogos/edit/{{ j[0] }}">Editar</a>
+            <a href="/jogos/delete/{{ j[0] }}" onclick="return confirm('Excluir jogo?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+    <a href="/jogos">Ver Todos os Jogos</a> -->
+
+    <!-- Links para outras páginas -->
+    <h2>Links Rápidos</h2>
+    <ul>
+        <li><a href="/usuarios">Gerenciar Usuários</a></li>
+        <li><a href="/avaliacoes">Gerenciar Avaliações</a></li>
+        <li><a href="/developer">Gerenciar Desenvolvedoras</a></li>
+        <li><a href="/jogos">Gerenciar Jogos</a></li>
+    </ul>
+</body>
+</html>

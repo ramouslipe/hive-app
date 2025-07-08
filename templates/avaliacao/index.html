@@ -1,0 +1,38 @@
+    {% if session.get('nome') %}
+    <div style="background:#eee; padding:10px;">
+        Logado como: <strong>{{ session['nome'] }}</strong>
+        (<a href="/logout">Sair</a>)
+    </div> 
+
+    {% if session.get('tipo') == 'usuario' %}
+    <div style="margin-top: 10px;">
+        <a href="/usuario/loja">🛒 Ir para a Loja de Jogos</a> |
+        <a href="/usuario/biblioteca">🎮 Minha Biblioteca</a>
+    </div>
+    {% endif %}
+
+    {% endif %}
+
+    {% if session.get('tipo') == 'usuario' %}
+    <a href="/usuario/biblioteca">Minha Biblioteca</a> |
+    {% endif %}
+
+<h1>Avaliações</h1>
+<a href="/avaliacoes/add">Nova Avaliação</a>
+<table border="1">
+    <tr><th>ID</th><th>Comentário</th><th>Usuário</th><th>Jogo</th><th>Ações</th></tr>
+    {% for a in avaliacoes %}
+    <tr>
+        <td>{{ a[0] }}</td>
+        <td>{{ a[1] }}</td>
+        <td>{{ a[2] }}</td>
+        <td>{{ a[3] }}</td>
+        <td>
+            <a href="/avaliacoes/delete/{{ a[0] }}" onclick="return confirm('Excluir avaliação?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<a href="/">Voltar</a>

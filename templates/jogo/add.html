@@ -1,0 +1,13 @@
+<h1>Adicionar Jogo</h1>
+<form method="POST">
+    Título: <input type="text" name="titulo"><br>
+    Preço: <input type="number" step="0.01" name="preco"><br>
+    Desenvolvedora:
+    <select name="id_desenvolvedora">
+        {% for d in desenvolvedoras %}
+        <option value="{{ d[0] }}">{{ d[1] }}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Salvar</button>
+</form>
+<a href="/jogos">Voltar</a>

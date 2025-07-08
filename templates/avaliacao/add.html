@@ -1,0 +1,19 @@
+<h1>Nova Avaliação</h1>
+<form method="POST">
+    Comentário:<br>
+    <textarea name="comentario" rows="4" cols="50"></textarea><br>
+    Usuário:
+    <select name="id_usuario">
+        {% for u in usuarios %}
+        <option value="{{ u[0] }}">{{ u[1] }}</option>
+        {% endfor %}
+    </select><br>
+    Jogo:
+    <select name="id_jogo">
+        {% for j in jogos %}
+        <option value="{{ j[0] }}">{{ j[1] }}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Salvar</button>
+</form>
+<a href="/avaliacoes">Voltar</a>

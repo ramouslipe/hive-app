@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Jogos</title>
+</head>
+<body>
+    {% if session.get('nome') %}
+    <div style="background:#eee; padding:10px;">
+        Logado como: <strong>{{ session['nome'] }}</strong>
+        (<a href="/logout">Sair</a>)
+    </div> 
+
+    {% if session.get('tipo') == 'usuario' %}
+    <div style="margin-top: 10px;">
+        <a href="/usuario/loja">🛒 Ir para a Loja de Jogos</a> |
+        <a href="/usuario/biblioteca">🎮 Minha Biblioteca</a>
+    </div>
+    {% endif %}
+
+    {% endif %}
+
+    {% if session.get('tipo') == 'usuario' %}
+    <a href="/usuario/biblioteca">Minha Biblioteca</a> |
+    {% endif %}
+    <h1>Jogos Cadastrados</h1>
+    <a href="/jogos/add">Adicionar Novo Jogo</a>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Título</th><th>Preço</th><th>Desenvolvedora</th><th>Ações</th>
+        </tr>
+        {% for j in jogos %}
+        <tr>
+            <td>{{ j[0] }}</td>
+            <td>{{ j[1] }}</td>
+            <td>{{ j[2] }}</td>
+            <td>{{ j[3] }}</td>
+            <td>
+                <a href="/jogos/edit/{{ j[0] }}">Editar</a>
+                <a href="/jogos/delete/{{ j[0] }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+<a href="/">Voltar</a>
+</body>
+</html>
