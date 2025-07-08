@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Desenvolvedores</title>
+</head>
+<body>
+   {% if session.get('nome') %}
+    <div style="background:#eee; padding:10px;">
+        Logado como: <strong>{{ session['nome'] }}</strong>
+        (<a href="/logout">Sair</a>)
+    </div>
+    {% endif %}
+</body>
+
+<h1>Desenvolvedoras</h1>
+<a href="/developer/add">Nova Desenvolvedora</a>
+
+<table border="1">
+    <tr><th>ID</th><th>Nome</th><th>Email</th><th>Ações</th></tr>
+    {% for d in developers %}
+    <tr>
+        <td>{{ d[0] }}</td>
+        <td>{{ d[1] }}</td>
+        <td>{{ d[2] }}</td>
+        <td>
+            <a href="/developer/delete/{{ d[0] }}" onclick="return confirm('Deseja excluir esta desenvolvedora?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Voltar</a>
+</html>
